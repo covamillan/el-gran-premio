@@ -1,0 +1,94 @@
+.text-reveal {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+  filter: brightness(400%);
+  justify-content: center;
+  background: black;
+}
+
+.text {
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  span {
+    background: url('../../../texturas/15.jpg');
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.letter {
+  display: flex;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+.letter:focus-visible {
+  outline-color: hsl(0 0% 50% / 0.25);
+  outline-offset: 1rem;
+}
+
+.letter span {
+  scale: calc(var(--active, 0) + 0.5);
+  filter: blur(calc((0.8 - var(--active, 0)) * 1rem));
+  transition: scale calc(((1 - var(--active, 0)) + 0.2) * 2s),
+    filter calc(((1 - var(--active, 0)) + 0.2) * 1s);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.letter:first-of-type {
+  padding-left: 5rem;
+}
+.letter:last-of-type {
+  padding-right: 5rem;
+}
+
+:root {
+  --lerp-0: 1; /* === sin(90deg) */
+  --lerp-1: calc(sin(50deg));
+  --lerp-2: calc(sin(45deg));
+  --lerp-3: calc(sin(35deg));
+  --lerp-4: calc(sin(25deg));
+  --lerp-5: calc(sin(15deg));
+}
+
+.letter:is(:hover, :focus-visible) {
+  --active: var(--lerp-0);
+}
+.letter:is(:hover, :focus-visible) + .letter,
+.letter:has(+ .letter:is(:hover, :focus-visible)) {
+  --active: var(--lerp-1);
+}
+.letter:is(:hover, :focus-visible) + .letter + .letter,
+.letter:has(+ .letter + .letter:is(:hover, :focus-visible)) {
+  --active: var(--lerp-2);
+}
+.letter:is(:hover, :focus-visible) + .letter + .letter + .letter,
+.letter:has(+ .letter + .letter + .letter:is(:hover, :focus-visible)) {
+  --active: var(--lerp-3);
+}
+.letter:is(:hover, :focus-visible) + .letter + .letter + .letter + .letter,
+.letter:has(
+    + .letter + .letter + .letter + .letter:is(:hover, :focus-visible)
+  ) {
+  --active: var(--lerp-4);
+}
+.letter:is(:hover, :focus-visible)
+  + .letter
+  + .letter
+  + .letter
+  + .letter
+  + .letter,
+.letter:has(
+    + .letter + .letter + .letter + .letter + .letter:is(:hover, :focus-visible)
+  ) {
+  --active: var(--lerp-5);
+}

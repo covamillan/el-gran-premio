@@ -1,0 +1,30 @@
+.scroll-watcher {
+  position: sticky;
+  z-index: 999;
+  background-color: lime;
+  width: 100% !important;
+  scale: 0 1;
+  animation: scroll-watcher linear;
+  margin-bottom: 3rem;
+}
+
+.scroll-watcher.scroll-x {
+  animation-timeline: scroll(x);
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+}
+
+.scroll-watcher.scroll-y {
+  animation-timeline: scroll(y);
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+}
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}

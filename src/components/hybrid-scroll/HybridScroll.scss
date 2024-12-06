@@ -1,0 +1,87 @@
+.hybrid-scroll {
+  p {
+    // width: 90%;
+    margin: 2rem 0;
+  }
+
+  section {
+    height: 100vh;
+  }
+
+  .container {
+    padding: 5rem;
+  }
+
+  .scroll_container {
+    height: 400vh;
+  }
+
+  h2 {
+    color: white;
+    margin: 0 5rem;
+    writing-mode: vertical-lr;
+    rotate: 180deg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50rem;
+    letter-spacing: 7vh;
+  }
+
+  .horizontal_scroll {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 400vw;
+    will-change: transform;
+    display: flex;
+    justify-content: space-between;
+
+    .image-container {
+      padding-top: 4rem;
+      margin: 0.5rem;
+      width: 100%;
+      text-align: end;
+      color: white;
+
+      &:last-of-type {
+        margin-right: 5rem;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: end;
+        text-transform: uppercase;
+        margin: 0;
+        width: 100%;
+      }
+
+      span {
+        font-size: 2rem;
+      }
+
+      img {
+        width: 100%;
+        @media (width > 700px) {
+          width: 100%;
+          object-fit: cover;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  .scroll_contents {
+    height: 100%;
+    width: 100vw;
+  }
+
+  .sticky_wrap {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}

@@ -1,0 +1,76 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.3);
+  // background: url('../../assets/backgrounds/06-bg.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+
+  img {
+    aspect-ratio: 1/1;
+    height: 30vh;
+    position: absolute;
+    display: grid;
+    place-self: center;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 1s;
+    filter: drop-shadow(0 0 20px black);
+  }
+
+  &::after {
+    content: '▾';
+    position: absolute;
+    filter: blur(2px);
+    height: 5rem;
+    color: rgba(255, 255, 255, 0.8);
+    bottom: 1rem;
+    opacity: 0;
+    font-size: 5rem;
+    font-weight: 100;
+    animation: blink 3s infinite;
+    animation-delay: 3s;
+  }
+
+  & video {
+    filter: grayscale(100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+// .hero-section {
+//   position: relative;
+//   width: 100%;
+//   height: 100vh;
+//   overflow: hidden;
+// }
